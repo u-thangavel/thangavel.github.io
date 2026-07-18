@@ -2,7 +2,7 @@
   "name": "Thangavel_website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://thangavel.github.io/",
+  "homepage": "https://u-thangavel.github.io/thangavel.github.io//",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
