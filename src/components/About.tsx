@@ -3,61 +3,49 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { FaAndroid, FaApple, FaJava, FaGithub } from 'react-icons/fa';
-import { SiKotlin, SiSwift, SiFirebase, SiJira } from 'react-icons/si';
+import { FaAndroid, FaApple, FaJava, FaGithub, FaWeebly } from 'react-icons/fa';
+import { SiKotlin, SiSwift, SiFirebase, SiJira, SiPython, SiSelenium, SiAppium, SiK6, SiTestinglibrary } from 'react-icons/si';
 import { Code2, Smartphone, Layers, Database, Wrench } from 'lucide-react';
 import styles from './About.module.css';
+import { GiJamesBondAperture } from 'react-icons/gi';
 
 const skillCategories = [
   {
-    title: "Languages",
+    title: "Languages & Platforms",
     icon: <Code2 size={20} />,
     skills: [
-      { name: "Kotlin", icon: <SiKotlin color="#7F52FF" /> }, // [cite: 4]
-      { name: "Java", icon: <FaJava color="#5382A1" /> }, // [cite: 4]
-      { name: "Swift", icon: <SiSwift color="#F05138" /> }
+      { name: "Python", icon: <SiPython color="#5382A1" /> }, 
+      { name: "Java", icon: <FaJava color="#5382A1" /> },
+       { name: "Android", icon: <FaAndroid color="#5382A1" /> },
+      { name: "iOS", icon: <FaApple color="#5382A1" /> },
+      { name: "Web", icon:null },
     ]
   },
+  
   {
-    title: "Platforms & UI",
-    icon: <Smartphone size={20} />,
-    skills: [
-      { name: "Android", icon: <FaAndroid color="#3DDC84" /> },
-      { name: "iOS", icon: <FaApple color="#A3AAAE" /> },
-      { name: "Kotlin Multiplatform", icon: <SiKotlin color="#C6538C" /> },
-      { name: "Jetpack Compose", icon: <FaAndroid color="#4285F4" /> },
-      { name: "SwiftUI", icon: <SiSwift color="#007AFF" /> },
-      { name: "Material Design", icon: null }
-    ]
-  },
-  {
-    title: "Architecture & Async",
-    icon: <Layers size={20} />,
-    skills: [
-      { name: "MVVM & Clean Architecture", icon: null },
-      { name: "Coroutines & Flow", icon: null },
-      { name: "RxJava", icon: null }
-    ]
-  },
-  {
-    title: "Libraries & Tech",
+    title: "Tools & Frameworks",
     icon: <Database size={20} />,
     skills: [
-      { name: "Ktor & Retrofit", icon: null },
-      { name: "SQLDelight & Room", icon: null },
-      { name: "Koin & Hilt", icon: null },
-      { name: "WebRTC", icon: null },
-      { name: "Coil", icon: null }
+      { name: "Selenium", icon:<SiSelenium color="#5382A1" /> },
+      { name: "Appium", icon: <SiAppium color="#5382A1" /> },
+      { name: "Jmeter", icon:null },
+      { name: "K6", icon: <SiK6 color="#5382A1" /> },
+      { name: "testNg", icon:null },
+       { name: "Cucumber", icon:null },
+        { name: "Pytest-BDD", icon:null },
+         
     ]
   },
   {
-    title: "Tools & Ecosystem",
+    title: " Ecosystem",
     icon: <Wrench size={20} />,
     skills: [
-      { name: "Firebase", icon: <SiFirebase color="#FFCA28" /> },
-      { name: "jUnit / Unit Testing", icon: null },
-      { name: "Git & GitHub", icon: <FaGithub color="#181717" /> },
-      { name: "Jira", icon: <SiJira color="#0052CC" /> }
+      { name: "Firebase", icon: <SiFirebase color="#5382A1" /> },
+      { name: "Git & GitHub", icon: <FaGithub color="#5382A1" /> },
+      { name: "Jira", icon: <SiJira color="#5382A1" /> },
+       { name: "Agile", icon: <SiJira color="#5382A1" /> }
+      
+
     ]
   }
 ];
@@ -93,19 +81,15 @@ export default function About() {
         >
           <h2 className={styles.heading}>Behind the Code</h2>
           <p className={styles.paragraph}>
-            I started my career as an Android developer writing Java. Today, as a Tech Lead, I build apps for both Android and iOS using Kotlin Multiplatform.
+            I evolved from a manual tester into a QA Automation Engineer, specializing in building scalable frameworks from scratch using Java, Python, Selenium, Appium, and AI-driven workflows.
           </p>
-          <p className={styles.paragraph}>
-            Over the years, I&apos;ve built products from scratch, rewritten older legacy code into modern MVVM and Jetpack Compose architectures, and mentored junior developers. I have a Master&apos;s in Computer Science, and I really enjoy contributing to open-source projects when I can.
-          </p>
+
 
           <h2 className={styles.heading}>Beyond the Screen</h2>
           <p className={styles.paragraph}>
-            I&apos;m based in Jaipur, Rajasthan. I&apos;m naturally a bit of an introvert, so while my day job involves a lot of leading and collaborating, I do my best work when I can just put on my headphones, put on some Eminem or old school hip-hop, and get completely into the zone.
+            I&apos;m based in Coimbatore, Tamil Nadu. and, being naturally a bit of an introvert, I thrive on deep-focus workflows, often fueled by old-school hip-hop. When I'm offline, I enjoy hearing stories, gaming, and spending quality time with my family.
           </p>
-          <p className={styles.paragraph}>
-            When I&apos;m not coding, I&apos;m usually spending time with my kid, messing around with photography, and daydreaming about attending an Eminem concert. I also love playing video games, though it&apos;s hard to find much free time for that these days!
-          </p>
+   
 
           <div className={styles.skillsSection}>
             <h3 className={styles.skillsHeading}>Technical Arsenal</h3>
@@ -175,7 +159,7 @@ export default function About() {
               style={{ objectFit: 'cover' }}
               sizes="(max-width: 768px) 100vw, 33vw"
             />
-            <div className={styles.imgCaption}>Tools used to test & debug </div>
+            <div className={styles.imgCaption}>U.Thangavel QA Automation Engineer </div>
           </motion.div>
 
           {/* Photo 2: Personal Photo (Top Right) */}

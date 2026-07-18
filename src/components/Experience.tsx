@@ -20,7 +20,7 @@ const journey = [
     tags: ["Appium", "Selenium", "API Testing", "Performance"]
   },
   {
-    year: '2022',
+    year: '2020',
     role: "QA Engineer",
     company: "Bluefield Technologies.",
     period: "2020 - 2023",

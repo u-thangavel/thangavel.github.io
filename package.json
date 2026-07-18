@@ -2,7 +2,7 @@
   "name": "Thangavel_website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://thangavel.github.io/", 
+  "homepage": "https://thangavel.github.io/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -25,6 +25,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.1",
+    "gh-pages": "^6.3.0",
     "typescript": "^5"
   }
 }
