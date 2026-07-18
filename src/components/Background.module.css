@@ -1,0 +1,23 @@
+.fixedBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0; /* Ensures it sits behind everything */
+  overflow: hidden;
+}
+
+.iconWrapper {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.03); /* Extremely subtle low opacity */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Add a slight glowing outline effect that matches the monochromatic theme */
+.iconWrapper svg {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.05));
+}

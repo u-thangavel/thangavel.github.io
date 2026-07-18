@@ -1,0 +1,235 @@
+.aboutSection {
+  padding: var(--space-2xl) 0;
+  position: relative;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+}
+
+.textContent {
+  max-width: 500px;
+}
+
+.heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: var(--space-lg);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.paragraph {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+  font-size: 1.05rem;
+}
+
+.skillsSection {
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.skillsHeading {
+  font-size: 1.4rem;
+  margin-bottom: var(--space-lg);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.skillCategory {
+  background: var(--card-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: var(--space-md);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.skillCategory:hover {
+  border-color: rgba(127, 82, 255, 0.35);
+  box-shadow: 0 16px 48px rgba(127, 82, 255, 0.14);
+  transform: translateY(-3px);
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.categoryIcon {
+  color: var(--color-kmp);
+  display: flex;
+  align-items: center;
+}
+
+.categoryTitle {
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.skillBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.skillBadge:hover {
+  border-color: var(--color-kmp);
+  transform: translateY(-2px);
+  background: rgba(127, 82, 255, 0.05); /* subtle kmp tint */
+}
+
+.skillIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.imagesGrid {
+  position: relative;
+  height: 600px;
+  width: 100%;
+}
+
+.imgWrapper {
+  position: absolute;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  border: 4px solid var(--border-color);
+  background: var(--bg-secondary);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-radius 0.4s ease, border-color 0.4s ease;
+}
+
+.imgWrapper:hover {
+  transform: scale(1.6) !important;
+  border-color: var(--color-kmp);
+  z-index: 50;
+}
+
+/* Image 1: Main left side */
+.imgPos1 {
+  width: 340px;
+  height: 240px;
+  left: -20px;
+  top: 100px;
+  z-index: 2;
+}
+
+/* Image 2: Top Right slightly smaller */
+.imgPos2 {
+  width: 180px;
+  height: 180px;
+  right: 10px;
+  top: 10px;
+  border-radius: var(--radius-full); /* Make it a circle! */
+  z-index: 3;
+}
+
+.imgPos2:hover {
+  border-radius: var(--radius-lg);
+}
+
+/* Image 3: Bottom Right overlapping */
+.imgPos3 {
+  width: 240px;
+  height: 260px;
+  right: 50px;
+  bottom: 20px;
+  z-index: 1;
+}
+
+.imgCaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--photo-caption-bg);
+  color: var(--text-primary);
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  text-align: center;
+  backdrop-filter: blur(8px);
+  transform: translateY(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  border-top: 1px solid var(--photo-caption-border);
+}
+
+.placeholderImg span {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+.easterEgg {
+  margin-top: var(--space-2xl);
+  padding: var(--space-md) var(--space-lg);
+  background: linear-gradient(90deg, rgba(127, 82, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+  border-left: 2px solid var(--color-kmp);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  position: relative;
+  max-width: 90%;
+}
+
+.quoteIcon {
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  font-size: 3rem;
+  color: var(--color-kmp);
+  opacity: 0.2;
+  font-family: serif;
+  line-height: 1;
+}
+
+.songQuote {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+  font-size: 0.95rem;
+}
+
+.artist {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

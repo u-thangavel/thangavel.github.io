@@ -1,0 +1,393 @@
+.heroSection {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: var(--nav-height);
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  width: 60vw;
+  height: 60vw;
+  max-width: 800px;
+  max-height: 800px;
+  background: radial-gradient(circle, rgba(127, 82, 255, 0.15) 0%, rgba(61, 220, 132, 0.05) 50%, transparent 70%);
+  filter: blur(80px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: pulseGlow 15s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.1) translate(50px, -50px);
+    opacity: 0.8;
+  }
+}
+
+.heroGrid {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--space-xl);
+  width: 100%;
+}
+
+.content {
+  max-width: 600px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+  backdrop-filter: blur(4px);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.badgeBorder {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-full);
+  padding: 1px;
+  background: linear-gradient(135deg, var(--color-kmp), var(--color-android), var(--color-ios), var(--color-kmp));
+  background-size: 300% 300%;
+  animation: borderRotate 4s linear infinite;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@keyframes borderRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.badgeIcon {
+  color: var(--accent);
+  position: relative;
+  z-index: 1;
+}
+
+.badgeText {
+  position: relative;
+  z-index: 1;
+  min-width: 140px;
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 1s step-end infinite;
+  color: var(--color-kmp);
+  font-weight: 300;
+  margin-left: 1px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.title {
+font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin: 0 0 var(--space-md) 0;
+}
+
+.subtitle {
+font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 0 var(--space-xl) 0;
+  font-weight: 400;
+}
+
+.ctaGroup {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.primaryBtn, .secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+.primaryBtn {
+  background: var(--accent);
+  color: var(--bg-primary);
+  border: 1px solid var(--accent);
+}
+
+.primaryBtn:hover {
+  background: transparent;
+  color: var(--accent);
+}
+
+.secondaryBtn {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.secondaryBtn:hover {
+  border-color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ---- Phone Mockup ---- */
+.phoneContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px;
+}
+
+.phoneMockup {
+  width: 280px;
+  height: 560px;
+  background: var(--phone-shell-bg);
+  border-radius: 44px;
+  border: 3px solid var(--phone-shell-border);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--phone-shell-shadow);
+  transform-style: preserve-3d;
+}
+
+.phoneNotch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 28px;
+  background: var(--phone-notch-bg);
+  border-radius: 0 0 20px 20px;
+  z-index: 20;
+  border-bottom: 1px solid var(--phone-editor-border);
+}
+
+.phoneNotch::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 8px;
+  background: var(--phone-notch-detail);
+  border-radius: 10px;
+}
+
+.phoneStatusBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 10;
+}
+
+.statusTime {
+  font-family: var(--font-mono);
+}
+
+.statusIcons {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  opacity: 0.7;
+}
+
+.phoneScreen {
+  padding: 8px 6px 0;
+  height: calc(100% - 60px);
+  overflow: hidden;
+}
+
+.codeEditor {
+  background: var(--phone-editor-bg);
+  border-radius: 16px;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--phone-editor-border);
+}
+
+.editorTabs {
+  display: flex;
+  gap: 0;
+  padding: 6px 8px 0;
+  border-bottom: 1px solid var(--phone-editor-tab-border);
+}
+
+.editorTab, .editorTabActive {
+  font-size: 0.55rem;
+  padding: 4px 10px;
+  border-radius: 6px 6px 0 0;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+.editorTabActive {
+  background: rgba(127, 82, 255, 0.15);
+  color: var(--text-secondary);
+  border: 1px solid rgba(127, 82, 255, 0.2);
+  border-bottom: none;
+}
+
+.codeContent {
+  padding: 8px 4px;
+  overflow: hidden;
+}
+
+.codeLine {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.lineNumber {
+  width: 18px;
+  text-align: right;
+  color: var(--text-muted);
+  opacity: 0.4;
+  flex-shrink: 0;
+  font-size: 0.5rem;
+}
+
+.phoneHomeBar {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--phone-home-bar);
+  border-radius: 4px;
+}
+
+/* ---- Floating tech icons around the phone ---- */
+.floatingIcon {
+  position: absolute;
+  z-index: 30;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--phone-float-border);
+}
+
+.floatingAndroid {
+  top: -15px;
+  right: -30px;
+  color: var(--color-android);
+  background: rgba(61, 220, 132, 0.1);
+}
+
+.floatingApple {
+  bottom: 60px;
+  left: -35px;
+  color: var(--phone-float-apple);
+  background: rgba(163, 170, 174, 0.1);
+}
+
+.floatingKotlin {
+  top: 40%;
+  right: -40px;
+  color: var(--color-kmp);
+  background: rgba(127, 82, 255, 0.1);
+}
+
+/* ---- Scroll indicator ---- */
+.scrollIndicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-muted);
+}
+
+.scrollIcon {
+  opacity: 0.6;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  .subtitle {
+    max-width: 100%;
+  }
+
+  .ctaGroup {
+    justify-content: center;
+  }
+
+  .phoneContainer {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .ctaGroup {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primaryBtn, .secondaryBtn {
+    text-align: center;
+  }
+}

@@ -1,0 +1,261 @@
+.projectsSection {
+  padding: var(--space-2xl) 0;
+}
+
+.heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-xl);
+  text-align: center;
+}
+
+.subHeading {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+  color: var(--color-kmp);
+  border-bottom: 2px solid rgba(127, 82, 255, 0.2);
+  padding-bottom: var(--space-sm);
+  display: inline-block;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-lg);
+}
+
+.cardWrapper {
+  position: relative;
+  cursor: default;
+}
+
+.card {
+  background: var(--card-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 50px var(--space-lg) var(--space-lg);
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  transform-style: preserve-3d;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 28px -40% auto;
+  height: 140px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  transform: translateX(-65%) rotate(-10deg);
+  opacity: 0;
+  transition: transform 0.65s ease, opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* The dynamic island / notch */
+.card::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 20px;
+  background: var(--bg-primary);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.card:hover {
+  border-color: rgba(127, 82, 255, 0.35);
+  box-shadow: 0 16px 48px rgba(127, 82, 255, 0.14);
+}
+
+.card:hover::before {
+  opacity: 1;
+  transform: translateX(65%) rotate(-10deg);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+  position: relative;
+  z-index: 2;
+}
+
+.iconWrapper {
+  color: var(--accent);
+  background: linear-gradient(135deg, rgba(127, 82, 255, 0.2) 0%, rgba(255, 137, 101, 0.2) 100%);
+  padding: 10px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(127, 82, 255, 0.3);
+}
+
+.projectType {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  
+  /* Layout constraints */
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+
+  /* Alignment */
+  display: flex;
+  align-items: center; /* Vertically centers the text */
+  justify-content: center; /* Horizontally centers the text */
+}
+
+
+.appSignal {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 18px;
+  margin-bottom: var(--space-sm);
+  color: var(--color-kmp);
+  opacity: 0.72;
+}
+
+.appSignal span {
+  display: block;
+  width: 5px;
+  border-radius: 999px;
+  background: currentColor;
+  transform-origin: bottom;
+  animation: signalPulse 1.8s ease-in-out infinite;
+}
+
+.appSignal span:nth-child(1) {
+  height: 7px;
+}
+
+.appSignal span:nth-child(2) {
+  height: 12px;
+  animation-delay: 0.14s;
+}
+
+.appSignal span:nth-child(3) {
+  height: 17px;
+  animation-delay: 0.28s;
+}
+
+@keyframes signalPulse {
+  0%, 100% {
+    transform: scaleY(0.58);
+    opacity: 0.48;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.cardTitle {
+  font-size: 1.4rem;
+  margin: 0 0 var(--space-sm) 0;
+  font-weight: 700;
+}
+
+.cardDesc {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin-bottom: var(--space-lg);
+  flex-grow: 1;
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.techBadge {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.techBadge:hover {
+  border-color: var(--color-kmp);
+  color: var(--text-primary);
+  background: rgba(127, 82, 255, 0.1);
+}
+
+.cardFooter {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-color);
+  padding-top: var(--space-md);
+  position: relative;
+  z-index: 5;
+}
+
+.metrics {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.metricBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.starIcon {
+  color: #fbbf24;
+}
+
+.metricBadge:hover {
+  color: var(--text-primary);
+  border-color: var(--color-kmp);
+}
+
+.cardLinks {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.linkIcon {
+  color: var(--text-muted);
+  transition: color var(--transition-smooth), transform 0.2s ease;
+  position: relative;
+  z-index: 10;
+}
+
+.linkIcon:hover {
+  color: var(--color-kmp);
+  transform: scale(1.15);
+}

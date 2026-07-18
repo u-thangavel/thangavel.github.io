@@ -1,0 +1,210 @@
+.progressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-kmp-gradient);
+  transform-origin: 0%;
+  z-index: 200;
+}
+
+.header {
+  position: fixed;
+  top: 3px;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  z-index: 100;
+  background: var(--header-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.headerScrolled {
+  background: var(--header-bg-scrolled);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+
+.nav {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.desktopActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.rightControls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.socialsDesktop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: var(--space-md);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.socialIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.socialIcon:hover {
+  border-color: rgba(127, 82, 255, 0.4);
+  color: var(--text-primary);
+  background: rgba(127, 82, 255, 0.12);
+}
+
+.navLink {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-kmp-gradient);
+  border-radius: 1px;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover {
+  color: var(--text-primary);
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.navLinkActive {
+  color: var(--text-primary);
+}
+
+.navLinkActive::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease;
+}
+
+.hamburger:hover {
+  border-color: var(--text-muted);
+}
+
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 150;
+}
+
+.mobileNav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(320px, 80vw);
+  height: 100vh;
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding: var(--space-xl);
+}
+
+.mobileNavLink {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: -0.02em;
+  transition: color 0.2s ease;
+}
+
+.mobileNavLink:hover {
+  color: var(--text-primary);
+}
+
+.mobileSocials {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.mobileSocialIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .socialsDesktop {
+    display: none;
+  }
+
+  .desktopActions {
+    display: none;
+  }
+  
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
